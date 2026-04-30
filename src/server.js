@@ -3,9 +3,7 @@ const express = require("express");
 const cors = require("cors");
 
 require("./db");
-const authRoutes = require("./routes/auth");
 const tripGoalRoutes = require("./routes/tripGoals");
-const { requireAuth } = require("./middleware/auth");
 
 const app = express();
 app.use(cors());
@@ -15,8 +13,7 @@ app.get("/health", (_req, res) => {
   res.json({ status: "ok" });
 });
 
-app.use("/v1", authRoutes);
-app.use("/v1", requireAuth, tripGoalRoutes);
+app.use("/v1", tripGoalRoutes);
 
 const port = Number(process.env.PORT || 8766);
 app.listen(port, () => {
