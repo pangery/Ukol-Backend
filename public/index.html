@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Interní systém pro správu cílů výletů a destinací." />
+    <title>TripAI — Správa výletů</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="progress" id="progress-bar" role="progressbar" aria-hidden="true" hidden></div>
+    <header class="app-bar">
+      <div class="app-bar__brand">
+        <span class="app-bar__logo">TripAI</span>
+        <span class="app-bar__divider" aria-hidden="true">/</span>
+        <span class="app-bar__context">Správa výletů</span>
+      </div>
+      <button type="button" class="btn btn--primary btn--plus" id="btn-new-goal">Nový cíl výletu</button>
+    </header>
+
+    <div class="shell">
+      <aside class="list-panel" aria-labelledby="nav-heading">
+        <div class="list-panel__toolbar">
+          <div class="list-panel__heading">
+            <h2 class="list-panel__title" id="nav-heading">Cíle výletů</h2>
+            <span class="list-panel__count" id="goals-count" aria-label="Počet záznamů">0</span>
+          </div>
+          <form class="filters" id="filters-form" role="search">
+            <label class="field">
+              <span class="field__label">Vyhledávání</span>
+              <input
+                type="search"
+                name="search"
+                id="filter-search"
+                placeholder="Název nebo zaměření"
+                autocomplete="off"
+              />
+            </label>
+            <label class="field">
+              <span class="field__label">Obtížnost</span>
+              <select name="difficulty" id="filter-difficulty">
+                <option value="">Všechny</option>
+                <option value="easy">Snadná</option>
+                <option value="medium">Střední</option>
+                <option value="hard">Náročná</option>
+              </select>
+            </label>
+          </form>
+        </div>
+        <div class="list-panel__body" id="goals-panel">
+          <div class="loading" id="goals-loading">
+            <span class="loading__label">Načítání</span>
+          </div>
+          <div class="table-frame">
+            <table class="table table--list" id="goals-table" hidden>
+              <thead>
+                <tr>
+                  <th scope="col">Název</th>
+                  <th scope="col" class="col-fit">Obtížnost</th>
+                </tr>
+              </thead>
+              <tbody id="goals-list"></tbody>
+            </table>
+          </div>
+          <p class="empty-note" id="goals-empty" hidden>Žádné záznamy neodpovídají zadaným kritériím.</p>
+        </div>
+      </aside>
+
+      <main class="workspace-main" id="main-content">
+        <section class="empty-view" id="detail-placeholder">
+          <div class="empty-view__steps" aria-hidden="true">
+            <span class="step is-done">1</span>
+            <span class="step-line"></span>
+            <span class="step">2</span>
+            <span class="step-line"></span>
+            <span class="step">3</span>
+          </div>
+          <p class="empty-view__lead">Vyberte záznam v seznamu vlevo</p>
+          <p class="empty-view__hint">Zobrazí se detail cíle výletu včetně evidovaných destinací a souhrnných údajů.</p>
+        </section>
+
+        <article class="detail hidden" id="detail-panel" aria-labelledby="detail-heading">
+          <div class="loading loading--detail" id="detail-loading">
+            <div class="skeleton" aria-hidden="true">
+              <div class="skeleton__line skeleton__line--lg"></div>
+              <div class="skeleton__line"></div>
+              <div class="skeleton__line skeleton__line--sm"></div>
+              <div class="skeleton__grid">
+                <div class="skeleton__block"></div>
+                <div class="skeleton__block"></div>
+                <div class="skeleton__block"></div>
+              </div>
+            </div>
+            <span class="loading__label">Načítání detailu</span>
+          </div>
+
+          <header class="detail__toolbar">
+            <nav class="crumb" aria-label="Navigace">
+              <span>Cíle výletů</span>
+              <span class="crumb__sep" aria-hidden="true">›</span>
+              <span class="crumb__current" id="breadcrumb-name">—</span>
+            </nav>
+            <div class="detail__actions">
+              <button type="button" class="btn" id="btn-edit-goal">Upravit</button>
+              <button type="button" class="btn btn--danger" id="btn-delete-goal">Odstranit</button>
+            </div>
+          </header>
+
+          <section class="detail__intro">
+            <h1 class="detail__title" id="detail-heading">—</h1>
+            <dl class="detail__meta" id="detail-meta"></dl>
+          </section>
+
+          <section class="stats" aria-label="Souhrn destinací">
+            <div class="stats__item stats__item--dest">
+              <span class="stats__label">Destinace</span>
+              <span class="stats__value" id="metric-count">0</span>
+            </div>
+            <div class="stats__item stats__item--days">
+              <span class="stats__label">Celková délka</span>
+              <span class="stats__value" id="metric-days">0 dní</span>
+            </div>
+            <div class="stats__item stats__item--budget stats__item--highlight">
+              <span class="stats__label">Odhadovaný rozpočet</span>
+              <span class="stats__value" id="metric-budget">0 Kč</span>
+            </div>
+          </section>
+
+          <section class="panel-section" aria-labelledby="destinations-heading">
+            <header class="panel-section__head">
+              <h2 class="panel-section__title" id="destinations-heading">Destinace</h2>
+              <button type="button" class="btn btn--primary btn--plus" id="btn-new-destination">Přidat destinaci</button>
+            </header>
+            <div class="table-frame">
+              <table class="table" id="destinations-table" hidden>
+                <thead>
+                  <tr>
+                    <th scope="col">Název</th>
+                    <th scope="col" class="col-num">Délka</th>
+                    <th scope="col" class="col-num">Denní rozpočet</th>
+                    <th scope="col" class="col-num">Celkem</th>
+                    <th scope="col" class="col-fit"><span class="sr-only">Akce</span></th>
+                  </tr>
+                </thead>
+                <tbody id="destinations-list"></tbody>
+                <tfoot id="destinations-foot" hidden>
+                  <tr class="table__total">
+                    <td colspan="3">Celkem</td>
+                    <td class="col-num" id="destinations-total">0 Kč</td>
+                    <td></td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+            <p class="empty-note" id="destinations-empty" hidden>K tomuto cíli nejsou evidovány žádné destinace.</p>
+          </section>
+        </article>
+      </main>
+    </div>
+
+    <footer class="app-foot">
+      <p>TripAI · interní evidence výletů</p>
+    </footer>
+
+    <dialog class="dialog" id="goal-modal" aria-labelledby="goal-modal-title">
+      <form class="dialog__form" id="goal-form" method="dialog">
+        <header class="dialog__head">
+          <h2 class="dialog__title" id="goal-modal-title">Nový cíl výletu</h2>
+        </header>
+        <div class="dialog__body">
+          <label class="field">
+            <span class="field__label">Název <span class="req">*</span></span>
+            <input type="text" name="name" required maxlength="120" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span class="field__label">Zaměření <span class="req">*</span></span>
+            <input type="text" name="focus" required maxlength="160" autocomplete="off" />
+          </label>
+          <label class="field">
+            <span class="field__label">Obtížnost <span class="req">*</span></span>
+            <select name="difficulty" required>
+              <option value="">Vyberte</option>
+              <option value="easy">Snadná</option>
+              <option value="medium">Střední</option>
+              <option value="hard">Náročná</option>
+            </select>
+          </label>
+        </div>
+        <footer class="dialog__foot">
+          <button type="button" class="btn" data-close-modal>Zrušit</button>
+          <button type="submit" class="btn btn--primary" id="goal-submit">Uložit</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="destination-modal" aria-labelledby="destination-modal-title">
+      <form class="dialog__form" id="destination-form" method="dialog">
+        <header class="dialog__head">
+          <h2 class="dialog__title" id="destination-modal-title">Nová destinace</h2>
+        </header>
+        <div class="dialog__body">
+          <label class="field">
+            <span class="field__label">Název <span class="req">*</span></span>
+            <input type="text" name="name" required maxlength="120" autocomplete="off" />
+          </label>
+          <div class="field-row">
+            <label class="field">
+              <span class="field__label">Délka (dny) <span class="req">*</span></span>
+              <input type="number" name="estimatedDurationDays" required min="1" step="1" inputmode="numeric" />
+            </label>
+            <label class="field">
+              <span class="field__label">Denní rozpočet (Kč) <span class="req">*</span></span>
+              <input type="number" name="dailyBudget" required min="0.01" step="0.01" inputmode="decimal" />
+            </label>
+          </div>
+          <p class="field-note" id="budget-hint" hidden></p>
+        </div>
+        <footer class="dialog__foot">
+          <button type="button" class="btn" data-close-modal>Zrušit</button>
+          <button type="submit" class="btn btn--primary" id="destination-submit">Uložit</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <dialog class="dialog" id="confirm-modal" aria-labelledby="confirm-title">
+      <form class="dialog__form" id="confirm-form" method="dialog">
+        <header class="dialog__head">
+          <h2 class="dialog__title" id="confirm-title">Potvrzení akce</h2>
+        </header>
+        <div class="dialog__body">
+          <p id="confirm-message"></p>
+        </div>
+        <footer class="dialog__foot">
+          <button type="button" class="btn" value="cancel" data-close-confirm>Zrušit</button>
+          <button type="submit" class="btn btn--danger" value="confirm" id="confirm-submit">Potvrdit</button>
+        </footer>
+      </form>
+    </dialog>
+
+    <div class="toast" id="notification" role="status" aria-live="polite" hidden></div>
+
+    <script src="/app.js" type="module"></script>
+  </body>
+</html>
