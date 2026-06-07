@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 280" fill="none">
+  <rect width="560" height="280" rx="12" fill="#f8fafc" stroke="#e2e8f0"/>
+  <text x="280" y="22" text-anchor="middle" fill="#64748b" font-size="11" font-weight="600" font-family="system-ui">DAO — destinations + OPERACE</text>
+  <rect x="20" y="40" width="240" height="220" rx="8" fill="#fff" stroke="#6366f1" stroke-width="2"/>
+  <rect x="20" y="40" width="240" height="28" fill="#6366f1" rx="8"/><rect x="20" y="56" width="240" height="12" fill="#6366f1"/>
+  <text x="140" y="58" text-anchor="middle" fill="#fff" font-size="12" font-weight="700" font-family="system-ui">destinations</text>
+  <text x="32" y="84" fill="#0d9488" font-size="10" font-family="monospace">id</text><text x="180" y="84" fill="#64748b" font-size="10" font-family="monospace">PK</text>
+  <text x="32" y="102" fill="#d97706" font-size="10" font-family="monospace">trip_goal_id</text><text x="180" y="102" fill="#64748b" font-size="10" font-family="monospace">FK</text>
+  <text x="32" y="120" fill="#0f172a" font-size="10" font-family="monospace">name</text>
+  <text x="32" y="138" fill="#0f172a" font-size="10" font-family="monospace">estimated_duration_days</text>
+  <text x="32" y="156" fill="#0f172a" font-size="10" font-family="monospace">daily_budget</text>
+  <text x="32" y="174" fill="#0f172a" font-size="10" font-family="monospace">created_at</text>
+  <line x1="20" y1="190" x2="260" y2="190" stroke="#e2e8f0"/>
+  <text x="32" y="210" fill="#64748b" font-size="9" font-family="system-ui">mapDestination() ? camelCase API</text>
+  <rect x="280" y="40" width="260" height="44" rx="6" fill="rgba(13,148,136,0.1)" stroke="#0d9488"/><text x="294" y="60" fill="#0d9488" font-size="10" font-weight="600" font-family="monospace">INSERT</text><text x="294" y="76" fill="#64748b" font-size="9" font-family="monospace">db.prepare(INSERT…).run()</text>
+  <rect x="280" y="92" width="260" height="44" rx="6" fill="rgba(99,102,241,0.1)" stroke="#6366f1"/><text x="294" y="112" fill="#6366f1" font-size="10" font-weight="600" font-family="monospace">SELECT</text><text x="294" y="128" fill="#64748b" font-size="9" font-family="monospace">WHERE trip_goal_id = ?</text>
+  <rect x="280" y="144" width="260" height="44" rx="6" fill="rgba(217,119,6,0.1)" stroke="#d97706"/><text x="294" y="164" fill="#d97706" font-size="10" font-weight="600" font-family="monospace">UPDATE</text><text x="294" y="180" fill="#64748b" font-size="9" font-family="monospace">SET name, days, budget</text>
+  <rect x="280" y="196" width="260" height="44" rx="6" fill="rgba(220,38,38,0.08)" stroke="#dc2626"/><text x="294" y="216" fill="#dc2626" font-size="10" font-weight="600" font-family="monospace">DELETE</text><text x="294" y="232" fill="#64748b" font-size="9" font-family="monospace">DELETE FROM destinations</text>
+</svg>

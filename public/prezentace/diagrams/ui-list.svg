@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 360" fill="none">
+  <rect width="560" height="360" rx="8" fill="#f5f4f1" stroke="#d8d6d0" stroke-width="2"/>
+  <rect width="560" height="40" fill="#1e3a5f"/>
+  <text x="20" y="26" fill="#fff" font-size="14" font-weight="700" font-family="system-ui">TripAI</text>
+  <text x="80" y="26" fill="#8b9cb3" font-size="12" font-family="system-ui">/ Správa výleto</text>
+  <rect x="420" y="10" width="120" height="22" rx="4" fill="#3b82f6"/><text x="480" y="25" text-anchor="middle" fill="#fff" font-size="10" font-weight="600" font-family="system-ui">+ Nový cíl výletu</text>
+  <rect x="0" y="40" width="200" height="320" fill="#fff" stroke="#d8d6d0"/>
+  <text x="15" y="62" fill="#141413" font-size="12" font-weight="700" font-family="system-ui">Cíle výleto</text>
+  <circle cx="175" cy="57" r="10" fill="#e9eef3"/><text x="175" y="61" text-anchor="middle" fill="#1e3a5f" font-size="9" font-weight="700" font-family="system-ui">3</text>
+  <rect x="10" y="72" width="180" height="22" rx="3" fill="#f5f4f1" stroke="#d8d6d0"/><text x="18" y="87" fill="#6f6e6a" font-size="9" font-family="system-ui">Vyhledávání&</text>
+  <rect x="10" y="100" width="180" height="22" rx="3" fill="#f5f4f1" stroke="#d8d6d0"/><text x="18" y="115" fill="#6f6e6a" font-size="9" font-family="system-ui">Obtí~nost: Vaechny ¾</text>
+  <rect x="10" y="132" width="180" height="36" rx="3" fill="#e9eef3" stroke="#1e3a5f" stroke-width="2"/>
+  <text x="18" y="148" fill="#141413" font-size="10" font-weight="600" font-family="system-ui">Okruh po Alpách</text>
+  <text x="18" y="160" fill="#6f6e6a" font-size="8" font-family="system-ui">Horská turistika</text>
+  <text x="165" y="152" fill="#1e3a5f" font-size="8" font-family="system-ui">Nároná</text>
+  <rect x="10" y="174" width="180" height="36" rx="3" fill="#fff" stroke="#d8d6d0"/>
+  <text x="18" y="190" fill="#141413" font-size="10" font-weight="600" font-family="system-ui">Víkend v esku</text>
+  <text x="18" y="202" fill="#6f6e6a" font-size="8" font-family="system-ui">Kultura a gastronomie</text>
+  <text x="165" y="194" fill="#1e3a5f" font-size="8" font-family="system-ui">Snadná</text>
+  <rect x="10" y="216" width="180" height="36" rx="3" fill="#fff" stroke="#d8d6d0"/>
+  <text x="18" y="232" fill="#141413" font-size="10" font-weight="600" font-family="system-ui">Baltické pobYe~í</text>
+  <text x="18" y="244" fill="#6f6e6a" font-size="8" font-family="system-ui">Relax u moYe</text>
+  <text x="165" y="236" fill="#1e3a5f" font-size="8" font-family="system-ui">StYední</text>
+  <rect x="210" y="50" width="340" height="300" fill="#fff"/>
+  <text x="230" y="80" fill="#141413" font-size="16" font-weight="700" font-family="system-ui">Okruh po Alpách</text>
+  <text x="230" y="100" fill="#6f6e6a" font-size="10" font-family="system-ui">ZamYení: Horská turistika · Obtí~nost: Nároná</text>
+  <rect x="230" y="115" width="90" height="50" rx="6" fill="#f5f4f1" stroke="#d8d6d0"/><text x="275" y="135" text-anchor="middle" fill="#6f6e6a" font-size="8" font-family="system-ui">Destinací</text><text x="275" y="155" text-anchor="middle" fill="#141413" font-size="16" font-weight="700" font-family="system-ui">3</text>
+  <rect x="330" y="115" width="90" height="50" rx="6" fill="#f5f4f1" stroke="#d8d6d0"/><text x="375" y="135" text-anchor="middle" fill="#6f6e6a" font-size="8" font-family="system-ui">Celkem dní</text><text x="375" y="155" text-anchor="middle" fill="#141413" font-size="16" font-weight="700" font-family="system-ui">9</text>
+  <rect x="430" y="115" width="100" height="50" rx="6" fill="#e9eef3" stroke="#1e3a5f"/><text x="480" y="135" text-anchor="middle" fill="#6f6e6a" font-size="8" font-family="system-ui">Rozpoet</text><text x="480" y="155" text-anchor="middle" fill="#1e3a5f" font-size="14" font-weight="700" font-family="system-ui">42 500 K</text>
+  <rect x="230" y="180" width="300" height="20" fill="#1e3a5f" opacity="0.1"/>
+  <text x="240" y="194" fill="#141413" font-size="9" font-weight="600" font-family="system-ui">Destinace</text>
+  <text x="240" y="218" fill="#141413" font-size="10" font-family="system-ui">Innsbruck</text><text x="340" y="218" fill="#6f6e6a" font-size="9" font-family="system-ui">4 dny</text><text x="400" y="218" fill="#6f6e6a" font-size="9" font-family="system-ui">3 200 K/den</text>
+  <text x="240" y="238" fill="#141413" font-size="10" font-family="system-ui">Hallstatt</text><text x="340" y="238" fill="#6f6e6a" font-size="9" font-family="system-ui">2 dny</text><text x="400" y="238" fill="#6f6e6a" font-size="9" font-family="system-ui">2 800 K/den</text>
+  <text x="240" y="258" fill="#141413" font-size="10" font-family="system-ui">Salzburg</text><text x="340" y="258" fill="#6f6e6a" font-size="9" font-family="system-ui">3 dny</text><text x="400" y="258" fill="#6f6e6a" font-size="9" font-family="system-ui">2 500 K/den</text>
+  <rect x="230" y="280" width="110" height="24" rx="4" fill="#1e3a5f"/><text x="285" y="296" text-anchor="middle" fill="#fff" font-size="9" font-weight="600" font-family="system-ui">+ Nová destinace</text>
+  <text x="280" y="340" text-anchor="middle" fill="#6f6e6a" font-size="10" font-family="system-ui">Screenshot UI  seznam + detail cíle</text>
+</svg>
