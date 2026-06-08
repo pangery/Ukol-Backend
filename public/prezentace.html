@@ -821,10 +821,6 @@
       <section class="slide">
         <span class="kicker"><span class="kicker__dot"></span>4 nejdůležitější user stories</span>
         <h2 class="heading">Co uživatel <span class="accent">potřebuje</span></h2>
-        <figure class="fig" style="margin-bottom: 1.1rem">
-          <img src="/prezentace/diagrams/user-stories.svg" alt="Přehledový diagram 4 user stories" />
-          <figcaption class="fig__caption">US-01 až US-04 — klíčové požadavky uživatele</figcaption>
-        </figure>
         <div class="grid grid-2">
           <div class="card story">
             <div class="story__num">1</div>
@@ -886,10 +882,6 @@
             </div>
           </div>
         </div>
-        <figure class="fig" style="margin-top: 1.1rem">
-          <img src="/prezentace/diagrams/products-uml.svg" alt="UML diagram produktů TripGoal a Destination" />
-          <figcaption class="fig__caption">UML diagram produktů — vazba 1 : N s kaskádovým mazáním</figcaption>
-        </figure>
         <p class="note">
           <b>Destination</b> je vždy navázána na právě jeden <b>TripGoal</b> přes <code>trip_goal_id</code>.
           Při smazání cíle se kaskádově smažou i destinace (<code>ON DELETE CASCADE</code>).
@@ -901,10 +893,6 @@
         <span class="kicker"><span class="kicker__dot"></span>Atributy nejdůležitějšího produktu</span>
         <h2 class="heading">Produkt <span class="accent">TripGoal</span></h2>
         <div class="grid grid-2" style="align-items: start">
-          <figure class="fig">
-            <img src="/prezentace/diagrams/tripgoal-attrs.svg" alt="Diagram atributů produktu TripGoal" />
-            <figcaption class="fig__caption">Přehled atributů doménového produktu</figcaption>
-          </figure>
           <table class="attr-table">
             <thead>
               <tr><th>Atribut</th><th>Typ</th><th>Pravidla</th><th>Popis</th></tr>
@@ -983,10 +971,6 @@
               </div>
             </div>
           </div>
-          <figure class="fig">
-            <img src="/prezentace/diagrams/er-diagram.svg" alt="ER diagram databázového schématu" />
-            <figcaption class="fig__caption">ER diagram — SQLite, FK, ON DELETE CASCADE</figcaption>
-          </figure>
         </div>
         <p class="note">Databáze <b>SQLite</b> (<code>better-sqlite3</code>), soubor <code>data/tripai.db</code>, WAL mode, zapnuté foreign keys.</p>
       </section>
@@ -995,10 +979,6 @@
       <section class="slide">
         <span class="kicker"><span class="kicker__dot"></span>Atributy a DAO metody schématu</span>
         <h2 class="heading">DAO schématu <span class="accent">destinations</span></h2>
-        <figure class="fig" style="margin-bottom: 1.1rem">
-          <img src="/prezentace/diagrams/dao.svg" alt="Diagram schématu destinations a DAO operací" />
-          <figcaption class="fig__caption">Atributy tabulky destinations + CRUD datové operace</figcaption>
-        </figure>
         <div class="grid grid-2">
           <table class="attr-table">
             <thead><tr><th>Metoda / operace</th><th>Účel</th></tr></thead>
